@@ -41,4 +41,4 @@ The workflow will:
 - Medium Green: `#537043`
 - Forest Green: `#364c28` (also in the Green logo lettering version)
 - Terracota: `#a95028`
-- Dead leaves: `#948363`
+- Dead leaves: `#b0a384`
