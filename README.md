@@ -34,10 +34,11 @@ The workflow will:
 - Create deploy previews for pull requests
 - Add commit comments with deploy status
 
-# Manaíba colors
+# Manaíba colors {#colors}
 
 - Yellowish Green:`#dde499`
 - Light Green:  `#77b66b`
 - Medium Green: `#537043`
 - Forest Green: `#364c28` (also in the Green logo lettering version)
 - Terracota: `#a95028`
+- Dead leaves: `#948363`
