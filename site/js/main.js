@@ -12,8 +12,8 @@ const translations = {
 
     // Hero section
     'hero-tagline': {
-        pt: `Unimos <b>tecnologia</b> e <b>agricultura</b> para colaborar com a abundância da <br /><span style='color: #A95028'><b>vida na Terra</b></span>`,
-        en: `Uniting <b>technology</b> and <b>agriculture</b> to collaborate with the abundance of <br /><span style='color: #A95028'><b>life on Earth</b></span>`
+        pt: `Unimos <b>tecnologia</b> e <b>agricultura</b> para colaborar com a abundância da <span style='color: #A95028'><b>vida na Terra</b></span>`,
+        en: `Uniting <b>technology</b> and <b>agriculture</b> to collaborate with the abundance of <span style='color: #A95028'><b>life on Earth</b></span>`
     },
     'hero-contact-btn': {
         pt: 'Entre em Contato',
