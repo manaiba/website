@@ -66,6 +66,7 @@
                         'fade-in': 'fadeIn 1.5s ease-in-out',
                         'float': 'float 6s ease-in-out infinite',
                         'slide-up': 'slideUp 1s ease-out',
+                        'bounce-in': 'bounceIn 0.5s ease-out',
                     },
                     keyframes: {
                         fadeIn: {
@@ -79,6 +80,12 @@
                         slideUp: {
                             '0%': { opacity: '0', transform: 'translateY(50px)' },
                             '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        bounceIn: {
+                            '0%': { transform: 'scale(0.3)', opacity: '0' },
+                            '50%': { transform: 'scale(1.05)' },
+                            '70%': { transform: 'scale(0.9)' },
+                            '100%': { transform: 'scale(1)', opacity: '1' },
                         }
                     }
                 }
@@ -349,7 +356,7 @@
     <footer class="text-white py-12" style="background-color: #351b04">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
-                <img src="img/manaiba-branco.png" alt="Manaíba" class="w-auto mx-auto mb-4 animate-float" style="height: 100px !important;">
+                <img src="img/manaiba-branco.png" alt="Manaíba" class="w-auto mx-auto mb-4 animate-bounce-in" style="height: 100px !important;">
                 <p class="text-gray-100 mb-6 footer-tagline"
                    data-translate="footer-tagline">
                    At the crossover of technology and agriculture.</p>
