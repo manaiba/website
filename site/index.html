@@ -115,7 +115,8 @@
                        data-translate="hero-tagline">
                         Unimos <b>tecnologia</b> e <b>agricultura</b> para colaborar com a abundância da <br /><span style="color: #A95028"><b>vida na Terra</b></span>
                     </p>
-                    <div class="flex justify-center">
+                    <!-- Desktop button -->
+                    <div class="hidden md:flex justify-center">
                         <a href="#contact"
                            class="text-white px-8 md:px-10 py-4 rounded-lg text-xl font-bold
                                   transform hover:scale-105 hover:shadow-xl transition-all duration-300 inline-block hero-contact-btn border-2 border-transparent hover:border-white"
@@ -125,6 +126,17 @@
                         </a>
                     </div>
                 </div>
+            </div>
+
+            <!-- Mobile button spanning both sections -->
+            <div class="md:hidden absolute left-1/2 transform -translate-x-1/2 z-20" style="top: 65vh; margin-top: -24px;">
+                <a href="#contact"
+                   class="text-white px-8 py-4 rounded-lg text-lg font-bold
+                          transform hover:scale-105 transition-all duration-300 inline-block hero-contact-btn shadow-lg"
+                   style="background: linear-gradient(135deg, #364c28 0%, #537043 100%); box-shadow: 0 6px 20px rgba(54, 76, 40, 0.4);"
+                   data-translate="hero-contact-btn">
+                    Entre em Contato
+                </a>
             </div>
 
             <!-- Right side - Content -->
