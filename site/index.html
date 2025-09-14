@@ -61,6 +61,25 @@
                     },
                     fontFamily: {
                         'sans': ['Nunito', 'system-ui', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 1.5s ease-in-out',
+                        'float': 'float 6s ease-in-out infinite',
+                        'slide-up': 'slideUp 1s ease-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(50px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
                     }
                 }
             }
@@ -210,10 +229,10 @@
                  style="min-height: 65vh;">
                 <div class="text-center max-w-2xl">
                     <div class="mb-6">
-                        <img src="img/logo-manaiba.png" alt="Manaíba" class="h-75 md:h-42 w-auto mx-auto">
+                        <img src="img/logo-manaiba.png" alt="Manaíba" class="h-75 md:h-42 w-auto mx-auto animate-fade-in animate-float">
                     </div>
-                    <p class="text-2xl md:text-3xl lg:text-4xl leading-relaxed hero-tagline mb-8 font-medium"
-                       style="color: #364c28; text-shadow: 0 1px 2px rgba(0,0,0,0.1);"
+                    <p class="text-2xl md:text-3xl lg:text-4xl leading-relaxed hero-tagline mb-8 font-medium animate-slide-up"
+                       style="color: #364c28; text-shadow: 0 1px 2px rgba(0,0,0,0.1); animation-delay: 0.3s; animation-fill-mode: both;"
                        data-translate="hero-tagline">
                         Uniting <b>technology</b> and <b>agriculture</b> to collaborate with the abundance of <br /><span style="color: #A95028"><b>life on Earth</b></span>
                     </p>
@@ -221,8 +240,8 @@
                     <div class="hidden md:flex justify-center">
                         <a href="#contact"
                            class="text-white px-8 md:px-10 py-4 rounded-lg text-xl font-bold
-                                  transform hover:scale-105 hover:shadow-xl transition-all duration-300 inline-block hero-contact-btn border-2 border-transparent hover:border-white"
-                           style="background: linear-gradient(135deg, #364c28 0%, #537043 100%); box-shadow: 0 4px 15px rgba(54, 76, 40, 0.3);"
+                                  transform hover:scale-105 hover:shadow-xl transition-all duration-300 inline-block hero-contact-btn border-2 border-transparent hover:border-white animate-slide-up"
+                           style="background: linear-gradient(135deg, #364c28 0%, #537043 100%); box-shadow: 0 4px 15px rgba(54, 76, 40, 0.3); animation-delay: 0.6s; animation-fill-mode: both;"
                            data-translate="hero-contact-btn">
                             Get in Touch
                         </a>
@@ -234,8 +253,8 @@
             <div class="md:hidden absolute left-1/2 transform -translate-x-1/2 z-20" style="top: 65vh; margin-top: -24px;">
                 <a href="#contact"
                    class="text-white px-8 py-4 rounded-lg text-lg font-bold
-                          transform hover:scale-105 transition-all duration-300 inline-block hero-contact-btn shadow-lg"
-                   style="background: linear-gradient(135deg, #364c28 0%, #537043 100%); box-shadow: 0 6px 20px rgba(54, 76, 40, 0.4);"
+                          transform hover:scale-105 transition-all duration-300 inline-block hero-contact-btn shadow-lg animate-slide-up"
+                   style="background: linear-gradient(135deg, #364c28 0%, #537043 100%); box-shadow: 0 6px 20px rgba(54, 76, 40, 0.4); animation-delay: 0.6s; animation-fill-mode: both;"
                    data-translate="hero-contact-btn">
                     Get in Touch
                 </a>
