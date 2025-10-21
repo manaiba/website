@@ -26,7 +26,7 @@ const translations = {
         en: 'About Us'
     },
     'about-text-1': {
-        pt: '<span style="color: #364c28">Nosso objetivo é contribuir com a expansão da <b>Agricultura sustentável e regenerativa</b> com foco em</span>',
+        pt: '<span style="color: #364c28">Nosso objetivo é contribuir com a expansão da <b>agricultura sustentável e regenerativa</b> com foco em</span>',
         en: '<span style="color: #364c28">We were born to contribute to the expansion of <b>sustainable and regenerative agriculture systems</b>, focusing on<span>'
     },
     'about-item-1': {
@@ -74,8 +74,8 @@ const translations = {
         en: '<span style="color: #dde499;">At the crossover of technology and agriculture.</span>'
     },
     'footer-copyright': {
-        pt: '<span style="color: #b0a384;">© 2025 Manaíba. Todos os direitos reservados.</span>',
-        en: '<span style="color: #b0a384;">© 2025 Manaíba. All rights reserved.</span>'
+        pt: '<span style="color: #b0a384;">© 2025 Manaíba.tech Todos os direitos reservados.</span>',
+        en: '<span style="color: #b0a384;">© 2025 Manaíba.tech All rights reserved.</span>'
     }
 };
 
