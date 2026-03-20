@@ -97,12 +97,16 @@
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "Organization",
+        "@type": ["Organization", "TechCompany"],
         "name": "Manaíba",
         "url": "https://manaiba.tech",
         "logo": "https://manaiba.tech/img/logo-manaiba.png",
         "description": "Uniting technology and agriculture for sustainable and regenerative farming. Specializing in software systems, remote sensing, traceability, AI, and open source solutions.",
         "foundingDate": "2025",
+        "foundingLocation": {
+            "@type": "Place",
+            "name": "Campinas, São Paulo, Brazil"
+        },
         "contactPoint": {
             "@type": "ContactPoint",
             "telephone": "+55-11-95079-3995",
@@ -112,11 +116,24 @@
         "email": "contact@manaiba.tech",
         "address": {
             "@type": "PostalAddress",
+            "addressLocality": "Campinas",
+            "addressRegion": "SP",
             "addressCountry": "BR"
         },
-        "sameAs": [],
+        "sameAs": [
+            "https://www.linkedin.com/company/manaibatech"
+        ],
+        "knowsAbout": [
+            "Agroforestry Systems",
+            "Café de Floresta",
+            "Carbon Sequestration Monitoring",
+            "EUDR Compliance",
+            "Remote Sensing",
+            "Satellite Imagery Analysis",
+            "Regenerative Agriculture"
+        ],
         "industry": "Agricultural Technology",
-        "keywords": "agriculture technology, sustainable farming, remote sensing, traceability, artificial intelligence, open source, software systems, regenerative agriculture",
+        "keywords": "agroforestry planning, sistemas agroflorestais, SAF, café de floresta, EUDR compliance, carbon MRV, coffee traceability, remote sensing Brazil, geospatial agriculture, regenerative agriculture technology",
         "services": [
             {
                 "@type": "Service",
