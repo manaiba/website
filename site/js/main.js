@@ -73,9 +73,17 @@ const translations = {
         pt: '<span style="color: #dde499;">Criando soluções inovadoras para a agricultura.</span>',
         en: '<span style="color: #dde499;">At the crossover of technology and agriculture.</span>'
     },
+    'contact-address-title': {
+        pt: 'Endereço',
+        en: 'Address'
+    },
+    'contact-address': {
+        pt: 'Parque Científico e Tecnológico da Unicamp<br>Av. Alan Turing 776<br>Campinas-SP, Brasil<br>13083-898',
+        en: 'Parque Científico e Tecnológico da Unicamp<br>Av. Alan Turing 776<br>Campinas-SP, Brasil<br>13083-898'
+    },
     'footer-copyright': {
-        pt: '<span style="color: #b0a384;">© 2025 Manaíba.tech Todos os direitos reservados.</span>',
-        en: '<span style="color: #b0a384;">© 2025 Manaíba.tech All rights reserved.</span>'
+        pt: '<span style="color: #b0a384;">© 2025-2026 Manaíba.tech Todos os direitos reservados.</span>',
+        en: '<span style="color: #b0a384;">© 2025-2026 Manaíba.tech All rights reserved.</span>'
     }
 };
 
