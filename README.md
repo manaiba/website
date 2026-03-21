@@ -36,6 +36,7 @@ The workflow will:
 
 # Manaíba colors {#colors}
 
+- Cream (background): `#fafbec`
 - Yellowish Green:`#dde499`
 - Light Green:  `#77b66b`
 - Medium Green: `#537043`
