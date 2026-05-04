@@ -48,7 +48,7 @@
     <!-- Google Fonts - Nunito -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -101,6 +101,22 @@
         }
     </script>
 
+    <style>
+        .nav-link.active { color: #364c28; font-weight: 600; }
+        [data-reveal] {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+        }
+        [data-reveal].revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        @media (prefers-reduced-motion: reduce) {
+            [data-reveal] { opacity: 1; transform: none; transition: none; }
+        }
+    </style>
+
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
     {
@@ -133,46 +149,59 @@
         ],
         "knowsAbout": [
             "Agroforestry Systems",
-            "Café de Floresta",
+            "Reforestation",
+            "Software Systems",
+            "Remote Sensing",
+            "Traceability",
+            "Artificial Intelligence",
+            "Open Source",
             "Carbon Sequestration Monitoring",
             "EUDR Compliance",
-            "Remote Sensing",
             "Satellite Imagery Analysis",
             "Regenerative Agriculture"
         ],
         "industry": "Agricultural Technology",
         "keywords": "agroforestry planning, sistemas agroflorestais, SAF, café de floresta, EUDR compliance, carbon MRV, coffee traceability, remote sensing Brazil, geospatial agriculture, regenerative agriculture technology",
-        "services": [
-            {
-                "@type": "Service",
-                "name": "Software Systems",
-                "description": "Custom software solutions for agricultural applications"
-            },
-            {
-                "@type": "Service",
-                "name": "Remote Sensing",
-                "description": "Advanced remote sensing solutions for precision agriculture"
-            },
-            {
-                "@type": "Service",
-                "name": "Traceability",
-                "description": "Supply chain traceability solutions for agricultural products"
-            },
-            {
-                "@type": "Service",
-                "name": "Artificial Intelligence",
-                "description": "AI-powered solutions for agricultural optimization"
-            },
-            {
-                "@type": "Service",
-                "name": "Open Source Solutions",
-                "description": "Open source technology solutions for sustainable agriculture"
-            }
-        ]
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Services",
+            "itemListElement": [
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Agroforestry Systems",
+                        "description": "End-to-end solutions from agroforestry design and financial feasibility analysis through to operations, field management, and risk management."
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Reforestation",
+                        "description": "Platform integrating multiple data sources to monitor tree growth, biomass, and biodiversity in reforestation projects."
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Consulting",
+                        "description": "Custom digital solutions for crop monitoring and reporting using remote sensing, drone flights, and field data."
+                    }
+                }
+            ]
+        }
     }
     </script>
 </head>
 <body class="bg-gray-50 font-sans">
+    <!-- Skip link: hidden until focused via keyboard -->
+    <a href="#home"
+       class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:bg-primary focus:text-white focus:px-4 focus:py-2 focus:rounded-md focus:shadow-lg">
+        Skip to content
+    </a>
+
     <!-- Navigation -->
     <nav class="bg-white shadow-lg fixed w-full z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -187,6 +216,14 @@
                                class="text-gray-600 hover:text-primary px-3 py-2 rounded-md text-sm font-medium
                                       transition-colors nav-link"
                                data-translate="nav-home">Home</a>
+                            <a href="#what-we-do"
+                               class="text-gray-600 hover:text-primary px-3 py-2 rounded-md text-sm font-medium
+                                      transition-colors nav-link"
+                               data-translate="nav-whatwedo">What we do</a>
+                            <a href="#expertise"
+                               class="text-gray-600 hover:text-primary px-3 py-2 rounded-md text-sm font-medium
+                                      transition-colors nav-link"
+                               data-translate="nav-expertise">Expertise</a>
                             <a href="#contact"
                                class="text-gray-600 hover:text-primary px-3 py-2 rounded-md text-sm font-medium
                                       transition-colors nav-link"
@@ -196,22 +233,29 @@
                     <!-- Language Toggle -->
                     <div class="hidden md:flex items-center space-x-2 border-l border-gray-200 pl-4">
                         <button id="lang-pt"
+                                type="button"
                                 aria-label="Português"
+                                aria-pressed="false"
                                 class="px-3 py-1 text-sm font-semibold tracking-wide rounded-md transition-colors text-gray-600
                                        hover:bg-gray-100 border-2 border-gray-200">
                             PT
                         </button>
                         <button id="lang-en"
+                                type="button"
                                 aria-label="English"
+                                aria-pressed="true"
                                 class="px-3 py-1 text-sm font-semibold tracking-wide rounded-md transition-colors bg-primary
                                        text-white border-2 border-primary">
                             EN
                         </button>
                     </div>
                 </div>
-                <!-- Mobile menu button -->
                 <div class="md:hidden">
                     <button id="mobile-menu-button"
+                            type="button"
+                            aria-label="Toggle navigation menu"
+                            aria-expanded="false"
+                            aria-controls="mobile-menu"
                             class="text-gray-600 hover:text-primary focus:outline-none focus:text-primary">
                         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -228,17 +272,29 @@
                    class="text-gray-600 hover:text-primary block px-3 py-2 rounded-md text-base font-medium
                           nav-link"
                    data-translate="nav-home">Home</a>
+                <a href="#what-we-do"
+                   class="text-gray-600 hover:text-primary block px-3 py-2 rounded-md text-base font-medium
+                          nav-link"
+                   data-translate="nav-whatwedo">What we do</a>
+                <a href="#expertise"
+                   class="text-gray-600 hover:text-primary block px-3 py-2 rounded-md text-base font-medium
+                          nav-link"
+                   data-translate="nav-expertise">Expertise</a>
                 <a href="#contact"
                    class="text-gray-600 hover:text-primary block px-3 py-2 rounded-md text-base font-medium
                           nav-link"
                    data-translate="nav-contact">Contact</a>
                 <div class="flex items-center space-x-2 px-3 py-2">
                     <button id="mobile-lang-pt"
+                            type="button"
                             aria-label="Português"
+                            aria-pressed="false"
                             class="px-3 py-1 text-sm font-semibold tracking-wide rounded-md transition-colors text-gray-600
                                    hover:bg-gray-100 border-2 border-gray-200">PT</button>
                     <button id="mobile-lang-en"
+                            type="button"
                             aria-label="English"
+                            aria-pressed="true"
                             class="px-3 py-1 text-sm font-semibold tracking-wide rounded-md transition-colors bg-primary
                                    text-white border-2 border-primary">EN</button>
                 </div>
@@ -247,109 +303,161 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="relative overflow-hidden scroll-mt-20">
-        <!-- Desktop backgrounds -->
-        <div class="hidden md:block absolute top-0 left-0 w-1/2 h-screen bg-cream"></div>
-        <div class="hidden md:block absolute top-0 right-0 w-1/2 h-screen bg-dead-leaves"></div>
-        <!-- Mobile backgrounds -->
-        <div class="md:hidden absolute top-0 left-0 w-full h-[65vh] bg-cream"></div>
-        <div class="md:hidden absolute left-0 w-full top-[65vh] bottom-0 bg-dead-leaves"></div>
-
-        <div class="relative z-10 flex flex-col md:flex-row md:min-h-screen">
-            <!-- Left side - Logo and tagline -->
-            <div class="flex flex-col justify-center items-center px-6 py-12 md:flex-1 md:px-16 md:py-24"
-                 style="min-height: 65vh;">
-                <div class="text-center max-w-2xl">
-                    <div class="mb-6">
-                        <img src="img/logo-manaiba.png" alt="Manaíba" class="w-auto mx-auto animate-bounce-in">
-                    </div>
-                    <h1 class="text-2xl md:text-3xl lg:text-4xl leading-relaxed hero-tagline mb-8 font-medium animate-slide-up text-forest-green"
+    <section id="home" class="bg-cream scroll-mt-20 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 py-12 md:py-24 w-full">
+            <div class="flex flex-col md:flex-row items-center gap-10 md:gap-12 lg:gap-16">
+                <div class="md:flex-1 flex justify-center w-full">
+                    <img src="img/logo-manaiba.png" alt="Manaíba" class="w-auto max-w-full animate-bounce-in">
+                </div>
+                <!-- Mission + CTA -->
+                <div class="md:flex-1 text-center md:text-left max-w-2xl">
+                    <h1 class="text-2xl md:text-3xl lg:text-4xl leading-relaxed mb-8 font-medium animate-slide-up text-forest-green hero-tagline"
                         style="animation-delay: 0.3s; animation-fill-mode: both;"
                         data-translate="hero-tagline">
-                        Uniting <b>technology</b> and <b>agriculture</b> to collaborate with the abundance of <br /><span class="text-terracotta"><b>life on Earth</b></span>
+                        Accelerating the shift to <b>farming</b> that regenerates <span class="text-terracotta"><b>biodiversity</b></span> and <span class="text-terracotta"><b>climate</b></span>.
                     </h1>
-                    <!-- Desktop button -->
-                    <div class="hidden md:flex justify-center">
-                        <a href="#contact"
-                           class="text-white px-12 py-4 rounded-lg text-xl font-bold whitespace-nowrap
-                                  transform hover:scale-105 hover:shadow-xl transition-all duration-300 inline-block hero-contact-btn border-2 border-transparent hover:border-white animate-slide-up
-                                  bg-gradient-to-br from-forest-green to-medium-green"
-                           style="box-shadow: 0 4px 15px rgba(54, 76, 40, 0.3); animation-delay: 0.6s; animation-fill-mode: both;"
-                           data-translate="hero-contact-btn">
-                            Get in Touch
-                        </a>
+                    <a href="#contact"
+                       class="text-white px-10 md:px-12 py-4 rounded-lg text-lg md:text-xl font-bold whitespace-nowrap
+                              transform hover:scale-105 hover:shadow-xl transition-all duration-300 inline-block hero-contact-btn border-2 border-transparent hover:border-white animate-slide-up
+                              bg-gradient-to-br from-forest-green to-medium-green"
+                       style="box-shadow: 0 4px 15px rgba(54, 76, 40, 0.3); animation-delay: 0.6s; animation-fill-mode: both;"
+                       data-translate="hero-contact-btn">
+                        Get in Touch
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Do Section -->
+    <section id="what-we-do" class="bg-terracotta scroll-mt-20 relative">
+        <!-- Full-width illustration; top edge is cream, bottom edge is terracotta, so it bleeds into hero/expertise -->
+        <picture>
+            <source type="image/webp"
+                    srcset="img/fundo-640.webp 640w,
+                            img/fundo-1024.webp 1024w,
+                            img/fundo-1536.webp 1536w,
+                            img/fundo-2048.webp 2048w,
+                            img/fundo-2880.webp 2880w,
+                            img/fundo-3780.webp 3780w"
+                    sizes="100vw">
+            <img src="img/fundo-1280.png" alt="" aria-hidden="true"
+                 width="3780" height="4500"
+                 fetchpriority="high" loading="eager"
+                 class="w-full h-auto block select-none">
+        </picture>
+
+        <!-- Content: starts on top of the image's lower band on mobile, overlays the green forest on sm+ -->
+        <div class="-mt-[60vw] pb-10 sm:mt-0 sm:pb-0 sm:absolute sm:inset-0 sm:flex sm:items-center relative z-10">
+            <div class="w-full max-w-7xl mx-auto px-[clamp(0.75rem,2vw,4rem)]">
+                <div class="text-center mb-4 sm:mb-[clamp(1rem,3vw,5rem)]">
+                    <div data-reveal class="inline-block bg-black/40 backdrop-blur-[2px] rounded-lg px-4 py-2 sm:px-[clamp(1rem,2.2vw,2.5rem)] sm:py-[clamp(0.5rem,1.1vw,1.25rem)]">
+                        <h2 class="text-2xl sm:text-[clamp(1.5rem,4.5vw,3.75rem)] font-bold mb-1 sm:mb-[clamp(0.25rem,0.9vw,1rem)] text-cream"
+                            data-translate="whatwedo-title">What we do</h2>
+                        <p class="text-sm sm:text-[clamp(0.875rem,1.7vw,1.5rem)] text-cream max-w-2xl mx-auto leading-snug"
+                           data-translate="whatwedo-intro">From the canopy down to the soil, we build technology that helps regenerative agriculture scale.</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-[clamp(0.75rem,1.7vw,3rem)] max-w-5xl mx-auto items-stretch">
+                    <!-- Pillar 1: Agroforestry Systems -->
+                    <div data-reveal class="flex flex-col items-center text-center">
+                        <div class="hidden sm:flex w-[clamp(2.5rem,5vw,5rem)] h-[clamp(2.5rem,5vw,5rem)] mb-[clamp(0.5rem,1vw,1rem)] items-center justify-center rounded-full bg-cream/15 border border-cream/40 flex-shrink-0">
+                            <svg class="w-[clamp(1.25rem,2.6vw,2.5rem)] h-[clamp(1.25rem,2.6vw,2.5rem)] text-cream" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.75">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.5.41C16 21 22 13 22 6c0-1-.09-1.65-.24-2.5C18 5.5 12 5 8 8z"/>
+                            </svg>
+                        </div>
+                        <div class="bg-black/40 backdrop-blur-[2px] rounded-lg px-3 py-2 sm:px-[clamp(0.875rem,1.4vw,1.5rem)] sm:py-[clamp(0.75rem,1.4vw,1.5rem)] flex-1 w-full flex flex-col justify-center">
+                            <h3 class="text-base sm:text-[clamp(1rem,1.9vw,2rem)] font-bold text-cream mb-0.5 sm:mb-[clamp(0.25rem,0.5vw,0.625rem)]" data-translate="whatwedo-pillar-1">Agroforestry Systems</h3>
+                            <p class="text-xs sm:text-[clamp(0.8rem,1.3vw,1.25rem)] text-cream leading-snug" data-translate="whatwedo-desc-1">We deliver solutions from design and financial feasibility analysis through to operations, field management, and risk management.</p>
+                        </div>
+                    </div>
+
+                    <!-- Pillar 2: Reforestation -->
+                    <div data-reveal class="flex flex-col items-center text-center">
+                        <div class="hidden sm:flex w-[clamp(2.5rem,5vw,5rem)] h-[clamp(2.5rem,5vw,5rem)] mb-[clamp(0.5rem,1vw,1rem)] items-center justify-center rounded-full bg-cream/15 border border-cream/40 flex-shrink-0">
+                            <svg class="w-[clamp(1.25rem,2.6vw,2.5rem)] h-[clamp(1.25rem,2.6vw,2.5rem)] text-cream" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.75">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3 4.5 14h4.5v7h6v-7h4.5L12 3Zm0 18v-3"/>
+                            </svg>
+                        </div>
+                        <div class="bg-black/40 backdrop-blur-[2px] rounded-lg px-3 py-2 sm:px-[clamp(0.875rem,1.4vw,1.5rem)] sm:py-[clamp(0.75rem,1.4vw,1.5rem)] flex-1 w-full flex flex-col justify-center">
+                            <h3 class="text-base sm:text-[clamp(1rem,1.9vw,2rem)] font-bold text-cream mb-0.5 sm:mb-[clamp(0.25rem,0.5vw,0.625rem)]" data-translate="whatwedo-pillar-2">Reforestation</h3>
+                            <p class="text-xs sm:text-[clamp(0.8rem,1.3vw,1.25rem)] text-cream leading-snug" data-translate="whatwedo-desc-2">Our platform integrates multiple data sources to monitor tree growth, biomass, and biodiversity.</p>
+                        </div>
+                    </div>
+
+                    <!-- Pillar 3: Consulting -->
+                    <div data-reveal class="flex flex-col items-center text-center">
+                        <div class="hidden sm:flex w-[clamp(2.5rem,5vw,5rem)] h-[clamp(2.5rem,5vw,5rem)] mb-[clamp(0.5rem,1vw,1rem)] items-center justify-center rounded-full bg-cream/15 border border-cream/40 flex-shrink-0">
+                            <svg class="w-[clamp(1.25rem,2.6vw,2.5rem)] h-[clamp(1.25rem,2.6vw,2.5rem)] text-cream" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.75">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 0 1-2.555-.337A5.972 5.972 0 0 1 5.41 20.97a5.969 5.969 0 0 1-.474-.065 4.48 4.48 0 0 0 .978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25Z"/>
+                            </svg>
+                        </div>
+                        <div class="bg-black/40 backdrop-blur-[2px] rounded-lg px-3 py-2 sm:px-[clamp(0.875rem,1.4vw,1.5rem)] sm:py-[clamp(0.75rem,1.4vw,1.5rem)] flex-1 w-full flex flex-col justify-center">
+                            <h3 class="text-base sm:text-[clamp(1rem,1.9vw,2rem)] font-bold text-cream mb-0.5 sm:mb-[clamp(0.25rem,0.5vw,0.625rem)]" data-translate="whatwedo-pillar-3">Consulting</h3>
+                            <p class="text-xs sm:text-[clamp(0.8rem,1.3vw,1.25rem)] text-cream leading-snug" data-translate="whatwedo-desc-3">Custom digital solutions for crop monitoring and reporting using remote sensing, drone flights, and field data.</p>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Mobile button spanning both sections -->
-            <div class="md:hidden absolute left-1/2 transform -translate-x-1/2 z-20" style="top: 65vh; margin-top: -24px;">
-                <a href="#contact"
-                   class="text-white px-10 py-4 rounded-lg text-lg font-bold whitespace-nowrap
-                          transform hover:scale-105 transition-all duration-300 inline-block hero-contact-btn shadow-lg animate-slide-up
-                          bg-gradient-to-br from-forest-green to-medium-green"
-                   style="box-shadow: 0 6px 20px rgba(54, 76, 40, 0.4); animation-delay: 0.6s; animation-fill-mode: both;"
-                   data-translate="hero-contact-btn">
-                    Get in Touch
-                </a>
+    <!-- Expertise Section -->
+    <section id="expertise" class="bg-terracotta py-20 md:py-24 scroll-mt-20">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 about-title text-cream"
+                    data-translate="about-title">About Us</h2>
+                <p class="text-lg md:text-xl lg:text-2xl leading-relaxed text-cream"
+                   data-translate="about-text-1">
+                    We were born to contribute to the expansion of sustainable and regenerative agriculture systems, focusing on
+                </p>
             </div>
-
-            <!-- Right side - Content -->
-            <div class="flex flex-col justify-center items-center px-6 py-12 md:flex-1 md:px-16 md:py-24"
-                 style="min-height: 35vh;">
-                <div class="text-center max-w-2xl">
-                    <h2 class="text-4xl md:text-5xl lg:text-5xl font-bold mb-6 about-title text-cream"
-                        data-translate="about-title">About Us</h2>
-                    <p class="text-lg md:text-xl lg:text-2xl leading-relaxed hero-tagline mb-4 text-cream"
-                       data-translate="about-text-1">
-                        We were born to contribute to the expansion of sustainable and regenerative agriculture systems, focusing on
-                    </p>
-                    <div class="max-w-md mx-auto space-y-5 text-left">
-                        <div class="flex items-start gap-4">
-                            <svg class="w-8 h-8 flex-shrink-0 mt-1 text-forest-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.75">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M14.25 9.75 16.5 12l-2.25 2.25m-4.5 0L7.5 12l2.25-2.25M6 20.25h12A2.25 2.25 0 0 0 20.25 18V6A2.25 2.25 0 0 0 18 3.75H6A2.25 2.25 0 0 0 3.75 6v12A2.25 2.25 0 0 0 6 20.25Z"/>
-                            </svg>
-                            <div>
-                                <div class="text-lg md:text-xl font-bold font-mono text-forest-green" data-translate="about-item-1">Software Systems</div>
-                                <div class="text-sm md:text-base text-cream leading-snug" data-translate="about-desc-1">Custom platforms for sustainable agriculture</div>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-4">
-                            <svg class="w-8 h-8 flex-shrink-0 mt-1 text-forest-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.75">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418"/>
-                            </svg>
-                            <div>
-                                <div class="text-lg md:text-xl font-bold font-mono text-forest-green" data-translate="about-item-2">Remote Sensing</div>
-                                <div class="text-sm md:text-base text-cream leading-snug" data-translate="about-desc-2">Satellite imagery and geospatial analysis</div>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-4">
-                            <svg class="w-8 h-8 flex-shrink-0 mt-1 text-forest-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.75">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244"/>
-                            </svg>
-                            <div>
-                                <div class="text-lg md:text-xl font-bold font-mono text-forest-green" data-translate="about-item-3">Traceability</div>
-                                <div class="text-sm md:text-base text-cream leading-snug" data-translate="about-desc-3">End-to-end supply chain transparency</div>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-4">
-                            <svg class="w-8 h-8 flex-shrink-0 mt-1 text-forest-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.75">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.456-2.456L14.25 6l1.035-.259a3.375 3.375 0 0 0 2.456-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456Z"/>
-                            </svg>
-                            <div>
-                                <div class="text-lg md:text-xl font-bold font-mono text-forest-green" data-translate="about-item-4">Artificial Intelligence</div>
-                                <div class="text-sm md:text-base text-cream leading-snug" data-translate="about-desc-4">Models that learn from agronomy</div>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-4">
-                            <svg class="w-8 h-8 flex-shrink-0 mt-1 text-forest-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.75">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5"/>
-                            </svg>
-                            <div>
-                                <div class="text-lg md:text-xl font-bold font-mono text-forest-green" data-translate="about-item-5">Open Source</div>
-                                <div class="text-sm md:text-base text-cream leading-snug" data-translate="about-desc-5">Tools built openly with the community</div>
-                            </div>
-                        </div>
+            <div class="grid md:grid-cols-2 gap-5 max-w-4xl mx-auto">
+                <div data-reveal class="bg-cream rounded-lg p-6 shadow-md flex items-start gap-4">
+                    <svg class="w-8 h-8 flex-shrink-0 mt-1 text-forest-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.75">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M14.25 9.75 16.5 12l-2.25 2.25m-4.5 0L7.5 12l2.25-2.25M6 20.25h12A2.25 2.25 0 0 0 20.25 18V6A2.25 2.25 0 0 0 18 3.75H6A2.25 2.25 0 0 0 3.75 6v12A2.25 2.25 0 0 0 6 20.25Z"/>
+                    </svg>
+                    <div>
+                        <h3 class="text-base md:text-xl font-bold font-mono text-forest-green mb-1" data-translate="about-item-1">Software Systems</h3>
+                        <p class="text-xs md:text-base text-forest-green/80 leading-snug" data-translate="about-desc-1">Custom platforms for sustainable agriculture</p>
+                    </div>
+                </div>
+                <div data-reveal class="bg-cream rounded-lg p-6 shadow-md flex items-start gap-4">
+                    <svg class="w-8 h-8 flex-shrink-0 mt-1 text-forest-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.75">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418"/>
+                    </svg>
+                    <div>
+                        <h3 class="text-base md:text-xl font-bold font-mono text-forest-green mb-1" data-translate="about-item-2">Remote Sensing</h3>
+                        <p class="text-xs md:text-base text-forest-green/80 leading-snug" data-translate="about-desc-2">Satellite imagery and geospatial analysis</p>
+                    </div>
+                </div>
+                <div data-reveal class="bg-cream rounded-lg p-6 shadow-md flex items-start gap-4">
+                    <svg class="w-8 h-8 flex-shrink-0 mt-1 text-forest-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.75">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244"/>
+                    </svg>
+                    <div>
+                        <h3 class="text-base md:text-xl font-bold font-mono text-forest-green mb-1" data-translate="about-item-3">Traceability</h3>
+                        <p class="text-xs md:text-base text-forest-green/80 leading-snug" data-translate="about-desc-3">End-to-end supply chain transparency</p>
+                    </div>
+                </div>
+                <div data-reveal class="bg-cream rounded-lg p-6 shadow-md flex items-start gap-4">
+                    <svg class="w-8 h-8 flex-shrink-0 mt-1 text-forest-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.75">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.456-2.456L14.25 6l1.035-.259a3.375 3.375 0 0 0 2.456-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456Z"/>
+                    </svg>
+                    <div>
+                        <h3 class="text-base md:text-xl font-bold font-mono text-forest-green mb-1" data-translate="about-item-4">Artificial Intelligence</h3>
+                        <p class="text-xs md:text-base text-forest-green/80 leading-snug" data-translate="about-desc-4">Models that learn from agronomy</p>
+                    </div>
+                </div>
+                <div data-reveal class="bg-cream rounded-lg p-6 shadow-md flex items-start gap-4 md:col-span-2">
+                    <svg class="w-8 h-8 flex-shrink-0 mt-1 text-forest-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.75">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5"/>
+                    </svg>
+                    <div>
+                        <h3 class="text-base md:text-xl font-bold font-mono text-forest-green mb-1" data-translate="about-item-5">Open Source</h3>
+                        <p class="text-xs md:text-base text-forest-green/80 leading-snug" data-translate="about-desc-5">Tools built openly with the community</p>
                     </div>
                 </div>
             </div>
@@ -374,6 +482,7 @@
                     <div class="flex flex-col gap-8">
                         <div class="flex flex-1">
                             <a href="mailto:contact@manaiba.tech"
+                               data-reveal
                                class="text-center p-8 rounded-lg shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-center items-center w-full bg-terracotta">
                                 <div class="bg-white text-gray-900 w-16 h-16 rounded-full flex items-center justify-center
                                             mx-auto mb-4">
@@ -390,6 +499,7 @@
                         </div>
                         <div class="flex flex-1">
                             <a href="https://wa.me/5511950793995" target="_blank"
+                               data-reveal
                                class="text-center p-8 rounded-lg shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-center items-center w-full bg-terracotta">
                                 <div class="bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center
                                             mx-auto mb-4">
@@ -413,7 +523,7 @@
                     </div>
 
                     <!-- Right column: Address & Map -->
-                    <div class="rounded-lg overflow-hidden flex flex-col bg-cream shadow-md">
+                    <div data-reveal class="rounded-lg overflow-hidden flex flex-col bg-cream shadow-md">
                         <div class="p-6 text-center">
                             <div class="bg-terracotta text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
@@ -449,7 +559,7 @@
     <!-- Footer -->
     <footer class="text-white py-12 bg-earth-brown">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Top row: social left-of-center | divider | badge right-of-center -->
+            <!-- Top row: badge + LinkedIn -->
             <div class="flex items-center justify-center gap-8 mb-8">
                 <img src="img/empresa-filha.png" alt="Empresa Filha da Unicamp" class="h-14 md:h-16">
                 <div class="w-px h-12 bg-gray-500"></div>

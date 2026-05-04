@@ -5,6 +5,14 @@ const translations = {
         pt: 'Início',
         en: 'Home'
     },
+    'nav-whatwedo': {
+        pt: 'Serviços',
+        en: 'Services'
+    },
+    'nav-expertise': {
+        pt: 'Expertise',
+        en: 'Expertise'
+    },
     'nav-contact': {
         pt: 'Contato',
         en: 'Contact'
@@ -20,14 +28,14 @@ const translations = {
         en: 'Get in Touch'
     },
 
-    // About section
+    // Expertise section
     'about-title': {
-        pt: 'Sobre Nós',
-        en: 'About Us'
+        pt: 'Expertise',
+        en: 'Expertise'
     },
     'about-text-1': {
-        pt: '<span class="text-forest-green">Nosso objetivo é contribuir com a expansão da <b>agricultura sustentável e regenerativa</b> com foco em</span>',
-        en: '<span class="text-forest-green">We were born to contribute to the expansion of <b>sustainable and regenerative agriculture systems</b>, focusing on</span>'
+        pt: 'Nosso objetivo é contribuir com a expansão da <b>agricultura sustentável e regenerativa</b> com foco em',
+        en: 'We were born to contribute to the expansion of <b>sustainable and regenerative agriculture systems</b>, focusing on'
     },
     'about-item-1': {
         pt: 'Sistemas de Software',
@@ -68,6 +76,40 @@ const translations = {
     'about-desc-5': {
         pt: 'Ferramentas construídas abertamente com a comunidade',
         en: 'Tools built openly with the community'
+    },
+
+    // Services section
+    'whatwedo-title': {
+        pt: 'Nossos Serviços',
+        en: 'Our Services'
+    },
+    'whatwedo-intro': {
+        pt: 'Da copa das árvores ao solo, construímos tecnologia que ajuda a agricultura regenerativa a escalar.',
+        en: 'From the canopy down to the soil, we build technology that helps regenerative agriculture scale.'
+    },
+    'whatwedo-pillar-1': {
+        pt: 'Sistemas Agroflorestais',
+        en: 'Agroforestry Systems'
+    },
+    'whatwedo-desc-1': {
+        pt: 'Provemos soluções desde o design e análise de viabilidade financeira até a operação, manejo de campo e gestão de risco.',
+        en: 'We deliver solutions from design and financial feasibility analysis through to operations, field management, and risk management.'
+    },
+    'whatwedo-pillar-2': {
+        pt: 'Reflorestamento',
+        en: 'Reforestation'
+    },
+    'whatwedo-desc-2': {
+        pt: 'Nossa plataforma integra diversas fontes de dados auxiliando no monitoramento de crescimento das árvores, biomassa e biodiversidade.',
+        en: 'Our platform integrates multiple data sources to monitor tree growth, biomass, and biodiversity.'
+    },
+    'whatwedo-pillar-3': {
+        pt: 'Consultoria',
+        en: 'Consulting'
+    },
+    'whatwedo-desc-3': {
+        pt: 'Soluções digitais customizadas para monitoramento de plantio e geração de relatórios usando sensoriamento remoto, voos de drone e dados de campo.',
+        en: 'Custom digital solutions for crop monitoring and reporting using remote sensing, drone flights, and field data.'
     },
 
     // Contact section
@@ -129,7 +171,9 @@ function updateLanguage(lang) {
 
     // Update language button states
     langButtons.pt.forEach(btn => {
-        if (lang === 'pt') {
+        const active = lang === 'pt';
+        btn.setAttribute('aria-pressed', active);
+        if (active) {
             btn.classList.add('bg-primary', 'text-white');
             btn.classList.remove('text-gray-600', 'hover:bg-gray-100');
         } else {
@@ -139,7 +183,9 @@ function updateLanguage(lang) {
     });
 
     langButtons.en.forEach(btn => {
-        if (lang === 'en') {
+        const active = lang === 'en';
+        btn.setAttribute('aria-pressed', active);
+        if (active) {
             btn.classList.add('bg-primary', 'text-white');
             btn.classList.remove('text-gray-600', 'hover:bg-gray-100');
         } else {
@@ -157,7 +203,6 @@ function updateLanguage(lang) {
         }
     });
 
-    // Update document language
     document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en-US';
 }
 
@@ -166,7 +211,6 @@ document.addEventListener('DOMContentLoaded', function() {
     updateLanguage(currentLang);
 });
 
-// Add event listeners for language buttons
 langButtons.pt.forEach(btn => {
     btn.addEventListener('click', () => updateLanguage('pt'));
 });
@@ -180,8 +224,38 @@ const mobileMenuButton = document.getElementById('mobile-menu-button');
 const mobileMenu = document.getElementById('mobile-menu');
 
 mobileMenuButton.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
+    const opened = mobileMenu.classList.toggle('hidden') === false;
+    mobileMenuButton.setAttribute('aria-expanded', opened);
 });
+
+// Active-section nav highlight: the section whose middle is closest to the
+// viewport center "wins". The -50%/-50% rootMargin shrinks the observation
+// box to a single horizontal line at viewport center, so exactly one section
+// is intersecting at a time.
+const navLinks = document.querySelectorAll('.nav-link');
+const navObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const id = '#' + entry.target.id;
+            navLinks.forEach(link => {
+                link.classList.toggle('active', link.getAttribute('href') === id);
+            });
+        }
+    });
+}, { rootMargin: '-50% 0px -50% 0px' });
+document.querySelectorAll('section[id]').forEach(s => navObserver.observe(s));
+
+// Scroll-triggered reveals: fade in elements marked [data-reveal] once when
+// they first enter the viewport. Unobserve after revealing so it stays put.
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            revealObserver.unobserve(entry.target);
+        }
+    });
+}, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+document.querySelectorAll('[data-reveal]').forEach(el => revealObserver.observe(el));
 
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -195,6 +269,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             });
             // Close mobile menu if open
             mobileMenu.classList.add('hidden');
+            mobileMenuButton.setAttribute('aria-expanded', 'false');
         }
     });
 });
