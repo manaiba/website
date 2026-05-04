@@ -34,8 +34,8 @@ const translations = {
         en: 'Expertise'
     },
     'about-text-1': {
-        pt: 'Nosso objetivo é contribuir com a expansão da <b>agricultura sustentável e regenerativa</b> com foco em',
-        en: 'We were born to contribute to the expansion of <b>sustainable and regenerative agriculture systems</b>, focusing on'
+        pt: 'Nosso objetivo é oferecer soluções digitais para <b>agricultura sustentável e regenerativa</b> com foco em',
+        en: 'Our goal is to offer digital solutions for <b>sustainable and regenerative agriculture systems</b>, focusing on'
     },
     'about-item-1': {
         pt: 'Sistemas de Software',
@@ -77,6 +77,14 @@ const translations = {
         pt: 'Ferramentas construídas abertamente com a comunidade',
         en: 'Tools built openly with the community'
     },
+    'about-item-6': {
+        pt: 'Relatórios',
+        en: 'Reports'
+    },
+    'about-desc-6': {
+        pt: 'Documentação automatizada para projetos, compliance e ESG',
+        en: 'Automated reporting for projects, compliance, and ESG'
+    },
 
     // Services section
     'whatwedo-title': {
@@ -108,8 +116,8 @@ const translations = {
         en: 'Consulting'
     },
     'whatwedo-desc-3': {
-        pt: 'Soluções digitais customizadas para monitoramento de plantio e geração de relatórios usando sensoriamento remoto, voos de drone e dados de campo.',
-        en: 'Custom digital solutions for crop monitoring and reporting using remote sensing, drone flights, and field data.'
+        pt: 'Soluções digitais customizadas para projetos de agricultura regenerativa: monitoramento de plantio e geração de relatórios usando sensoriamento remoto, voos de drone e dados de campo.',
+        en: 'Custom digital solutions for regenerative agriculture: crop monitoring and reporting using remote sensing, drone flights, and field data.'
     },
 
     // Contact section
