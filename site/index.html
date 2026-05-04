@@ -56,8 +56,16 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#364c28',
-                        secondary: '#f59e0b'
+                        cream: '#fafbec',
+                        'yellowish-green': '#dde499',
+                        'light-green': '#77b66b',
+                        'medium-green': '#537043',
+                        'forest-green': '#364c28',
+                        terracotta: '#a95028',
+                        'dead-leaves': '#b0a384',
+                        brown: '#3e1c00',
+                        'earth-brown': '#351b04',
+                        primary: '#364c28'
                     },
                     fontFamily: {
                         'sans': ['Nunito', 'system-ui', 'sans-serif'],
@@ -188,14 +196,16 @@
                     <!-- Language Toggle -->
                     <div class="hidden md:flex items-center space-x-2 border-l border-gray-200 pl-4">
                         <button id="lang-pt"
-                                class="px-2 py-1 text-sm font-medium rounded-md transition-colors text-gray-600
+                                aria-label="Português"
+                                class="px-3 py-1 text-sm font-semibold tracking-wide rounded-md transition-colors text-gray-600
                                        hover:bg-gray-100 border-2 border-gray-200">
-                            🇧🇷
+                            PT
                         </button>
                         <button id="lang-en"
-                                class="px-2 py-1 text-sm font-medium rounded-md transition-colors bg-primary
+                                aria-label="English"
+                                class="px-3 py-1 text-sm font-semibold tracking-wide rounded-md transition-colors bg-primary
                                        text-white border-2 border-primary">
-                            🇬🇧
+                            EN
                         </button>
                     </div>
                 </div>
@@ -224,28 +234,26 @@
                    data-translate="nav-contact">Contact</a>
                 <div class="flex items-center space-x-2 px-3 py-2">
                     <button id="mobile-lang-pt"
-                            class="px-2 py-1 text-sm font-medium rounded-md transition-colors text-gray-600
-                                   hover:bg-gray-100 border-2 border-gray-200">🇧🇷</button>
+                            aria-label="Português"
+                            class="px-3 py-1 text-sm font-semibold tracking-wide rounded-md transition-colors text-gray-600
+                                   hover:bg-gray-100 border-2 border-gray-200">PT</button>
                     <button id="mobile-lang-en"
-                            class="px-2 py-1 text-sm font-medium rounded-md transition-colors bg-primary
-                                   text-white border-2 border-primary">🇬🇧</button>
+                            aria-label="English"
+                            class="px-3 py-1 text-sm font-semibold tracking-wide rounded-md transition-colors bg-primary
+                                   text-white border-2 border-primary">EN</button>
                 </div>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="relative overflow-hidden">
+    <section id="home" class="relative overflow-hidden scroll-mt-20">
         <!-- Desktop backgrounds -->
-        <div class="hidden md:block absolute top-0 left-0 w-1/2 h-screen"
-             style="background-color: #fafbec;"></div>
-        <div class="hidden md:block absolute top-0 right-0 w-1/2 h-screen"
-             style="background-color: #b0a384;"></div>
+        <div class="hidden md:block absolute top-0 left-0 w-1/2 h-screen bg-cream"></div>
+        <div class="hidden md:block absolute top-0 right-0 w-1/2 h-screen bg-dead-leaves"></div>
         <!-- Mobile backgrounds -->
-        <div class="md:hidden absolute top-0 left-0 w-full"
-             style="background-color: #fafbec; height: 65vh;"></div>
-        <div class="md:hidden absolute left-0 w-full"
-             style="background-color: #b0a384; top: 65vh; bottom: 0;"></div>
+        <div class="md:hidden absolute top-0 left-0 w-full h-[65vh] bg-cream"></div>
+        <div class="md:hidden absolute left-0 w-full top-[65vh] bottom-0 bg-dead-leaves"></div>
 
         <div class="relative z-10 flex flex-col md:flex-row md:min-h-screen">
             <!-- Left side - Logo and tagline -->
@@ -253,19 +261,20 @@
                  style="min-height: 65vh;">
                 <div class="text-center max-w-2xl">
                     <div class="mb-6">
-                        <img src="img/logo-manaiba.png" alt="Manaíba" class="h-75 md:h-42 w-auto mx-auto animate-bounce-in">
+                        <img src="img/logo-manaiba.png" alt="Manaíba" class="w-auto mx-auto animate-bounce-in">
                     </div>
-                    <p class="text-2xl md:text-3xl lg:text-4xl leading-relaxed hero-tagline mb-8 font-medium animate-slide-up"
-                       style="color: #364c28; text-shadow: 0 1px 2px rgba(0,0,0,0.1); animation-delay: 0.3s; animation-fill-mode: both;"
-                       data-translate="hero-tagline">
-                        Uniting <b>technology</b> and <b>agriculture</b> to collaborate with the abundance of <br /><span style="color: #A95028"><b>life on Earth</b></span>
-                    </p>
+                    <h1 class="text-2xl md:text-3xl lg:text-4xl leading-relaxed hero-tagline mb-8 font-medium animate-slide-up text-forest-green"
+                        style="text-shadow: 0 1px 2px rgba(0,0,0,0.1); animation-delay: 0.3s; animation-fill-mode: both;"
+                        data-translate="hero-tagline">
+                        Uniting <b>technology</b> and <b>agriculture</b> to collaborate with the abundance of <br /><span class="text-terracotta"><b>life on Earth</b></span>
+                    </h1>
                     <!-- Desktop button -->
                     <div class="hidden md:flex justify-center">
                         <a href="#contact"
                            class="text-white px-12 py-4 rounded-lg text-xl font-bold whitespace-nowrap
-                                  transform hover:scale-105 hover:shadow-xl transition-all duration-300 inline-block hero-contact-btn border-2 border-transparent hover:border-white animate-slide-up"
-                           style="background: linear-gradient(135deg, #364c28 0%, #537043 100%); box-shadow: 0 4px 15px rgba(54, 76, 40, 0.3); animation-delay: 0.6s; animation-fill-mode: both;"
+                                  transform hover:scale-105 hover:shadow-xl transition-all duration-300 inline-block hero-contact-btn border-2 border-transparent hover:border-white animate-slide-up
+                                  bg-gradient-to-br from-forest-green to-medium-green"
+                           style="box-shadow: 0 4px 15px rgba(54, 76, 40, 0.3); animation-delay: 0.6s; animation-fill-mode: both;"
                            data-translate="hero-contact-btn">
                             Get in Touch
                         </a>
@@ -277,8 +286,9 @@
             <div class="md:hidden absolute left-1/2 transform -translate-x-1/2 z-20" style="top: 65vh; margin-top: -24px;">
                 <a href="#contact"
                    class="text-white px-10 py-4 rounded-lg text-lg font-bold whitespace-nowrap
-                          transform hover:scale-105 transition-all duration-300 inline-block hero-contact-btn shadow-lg animate-slide-up"
-                   style="background: linear-gradient(135deg, #364c28 0%, #537043 100%); box-shadow: 0 6px 20px rgba(54, 76, 40, 0.4); animation-delay: 0.6s; animation-fill-mode: both;"
+                          transform hover:scale-105 transition-all duration-300 inline-block hero-contact-btn shadow-lg animate-slide-up
+                          bg-gradient-to-br from-forest-green to-medium-green"
+                   style="box-shadow: 0 6px 20px rgba(54, 76, 40, 0.4); animation-delay: 0.6s; animation-fill-mode: both;"
                    data-translate="hero-contact-btn">
                     Get in Touch
                 </a>
@@ -288,15 +298,13 @@
             <div class="flex flex-col justify-center items-center px-6 py-12 md:flex-1 md:px-16 md:py-24"
                  style="min-height: 35vh;">
                 <div class="text-center max-w-2xl">
-                    <h2 class="text-4xl md:text-5xl lg:text-5xl font-bold mb-6 about-title"
-                        style="color: #fafbec;"
+                    <h2 class="text-4xl md:text-5xl lg:text-5xl font-bold mb-6 about-title text-cream"
                         data-translate="about-title">About Us</h2>
-                    <p class="text-lg md:text-xl lg:text-2xl leading-relaxed hero-tagline mb-4"
-                       style="color: #fafbec;"
+                    <p class="text-lg md:text-xl lg:text-2xl leading-relaxed hero-tagline mb-4 text-cream"
                        data-translate="about-text-1">
                         We were born to contribute to the expansion of sustainable and regenerative agriculture systems, focusing on
                     </p>
-                    <div class="text-xl md:text-2xl lg:text-3xl leading-relaxed space-y-3 text-center font-bold font-mono" style="color: #364c28;">
+                    <div class="text-xl md:text-2xl lg:text-3xl leading-relaxed space-y-3 text-center font-bold font-mono text-forest-green">
                         <div data-translate="about-item-1">Software Systems</div>
                         <div data-translate="about-item-2">Remote Sensing</div>
                         <div data-translate="about-item-3">Traceability</div>
@@ -309,7 +317,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20" style="background-color: #3e1c00;">
+    <section id="contact" class="py-20 scroll-mt-20 bg-brown">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 contact-title"
@@ -326,8 +334,7 @@
                     <div class="flex flex-col gap-8">
                         <div class="flex flex-1">
                             <a href="mailto:contact@manaiba.tech"
-                               class="text-center p-8 rounded-lg hover:opacity-80 transition-all flex flex-col justify-center items-center w-full"
-                               style="background-color: #a95028;">
+                               class="text-center p-8 rounded-lg hover:opacity-80 transition-all flex flex-col justify-center items-center w-full bg-terracotta">
                                 <div class="bg-white text-gray-900 w-16 h-16 rounded-full flex items-center justify-center
                                             mx-auto mb-4">
                                     <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -337,14 +344,13 @@
                                                  00-2 2v10a2 2 0 002 2z"/>
                                     </svg>
                                 </div>
-                                <h4 class="text-yellow-300 text-xl font-semibold text-white mb-2">Email</h4>
+                                <h4 class="text-yellowish-green text-xl font-semibold mb-2">Email</h4>
                                 <p class="text-gray-200">contact@manaiba.tech</p>
                             </a>
                         </div>
                         <div class="flex flex-1">
                             <a href="https://wa.me/5511950793995" target="_blank"
-                               class="text-center p-8 rounded-lg hover:opacity-80 transition-all flex flex-col justify-center items-center w-full"
-                               style="background-color: #a95028;">
+                               class="text-center p-8 rounded-lg hover:opacity-80 transition-all flex flex-col justify-center items-center w-full bg-terracotta">
                                 <div class="bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center
                                             mx-auto mb-4">
                                         <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
@@ -360,14 +366,14 @@
                                                      11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
                                         </svg>
                                 </div>
-                                <h4 class="text-yellow-300 text-xl font-semibold mb-2">WhatsApp</h4>
+                                <h4 class="text-yellowish-green text-xl font-semibold mb-2">WhatsApp</h4>
                                 <p class="text-gray-200">+55 11 95079-3995</p>
                             </a>
                         </div>
                     </div>
 
                     <!-- Right column: Address & Map -->
-                    <div class="rounded-lg overflow-hidden flex flex-col" style="background-color: #a95028;">
+                    <div class="rounded-lg overflow-hidden flex flex-col bg-terracotta">
                         <div class="p-6 text-center">
                             <div class="bg-white text-gray-900 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
@@ -377,7 +383,7 @@
                                           d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
                                 </svg>
                             </div>
-                            <h4 class="text-yellow-300 text-xl font-semibold mb-2" data-translate="contact-address-title">Address</h4>
+                            <h4 class="text-yellowish-green text-xl font-semibold mb-2" data-translate="contact-address-title">Address</h4>
                             <p class="text-gray-200 text-sm leading-relaxed" data-translate="contact-address">
                                 Parque Científico e Tecnológico da Unicamp<br>
                                 Av. Alan Turing 776<br>
@@ -387,9 +393,10 @@
                         </div>
                         <div class="flex-1 min-h-[250px]">
                             <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3676.1!2d-47.0528!3d-22.8204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c8c3e3e3e3e3e3%3A0x0!2sAv.%20Alan%20Turing%2C%20776%20-%20Cidade%20Universit%C3%A1ria%2C%20Campinas%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1"
+                                src="https://maps.google.com/maps?q=Av.%20Alan%20Turing%20776%2C%20Campinas%20-%20SP%2013083-898&z=15&output=embed"
                                 width="100%" height="100%" style="border:0; min-height:250px;" allowfullscreen="" loading="lazy"
-                                referrerpolicy="no-referrer-when-downgrade">
+                                referrerpolicy="no-referrer-when-downgrade"
+                                title="Manaíba location map">
                             </iframe>
                         </div>
                     </div>
@@ -400,7 +407,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="text-white py-12" style="background-color: #351b04">
+    <footer class="text-white py-12 bg-earth-brown">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Top row: social left-of-center | divider | badge right-of-center -->
             <div class="flex items-center justify-center gap-8 mb-8">

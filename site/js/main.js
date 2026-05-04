@@ -12,8 +12,8 @@ const translations = {
 
     // Hero section
     'hero-tagline': {
-        pt: `Unimos <b>tecnologia</b> e <b>agricultura</b> para colaborar com a abundância da <span style='color: #A95028'><b>vida na Terra</b></span>`,
-        en: `Uniting <b>technology</b> and <b>agriculture</b> to collaborate with the abundance of <span style='color: #A95028'><b>life on Earth</b></span>`
+        pt: `Unimos <b>tecnologia</b> e <b>agricultura</b> para colaborar com a abundância da <span class='text-terracotta'><b>vida na Terra</b></span>`,
+        en: `Uniting <b>technology</b> and <b>agriculture</b> to collaborate with the abundance of <span class='text-terracotta'><b>life on Earth</b></span>`
     },
     'hero-contact-btn': {
         pt: 'Entre em Contato',
@@ -26,8 +26,8 @@ const translations = {
         en: 'About Us'
     },
     'about-text-1': {
-        pt: '<span style="color: #364c28">Nosso objetivo é contribuir com a expansão da <b>agricultura sustentável e regenerativa</b> com foco em</span>',
-        en: '<span style="color: #364c28">We were born to contribute to the expansion of <b>sustainable and regenerative agriculture systems</b>, focusing on<span>'
+        pt: '<span class="text-forest-green">Nosso objetivo é contribuir com a expansão da <b>agricultura sustentável e regenerativa</b> com foco em</span>',
+        en: '<span class="text-forest-green">We were born to contribute to the expansion of <b>sustainable and regenerative agriculture systems</b>, focusing on</span>'
     },
     'about-item-1': {
         pt: 'Sistemas de Software',
@@ -52,8 +52,8 @@ const translations = {
 
     // Contact section
     'contact-title': {
-        pt: '<span style="color: #dde499;">Vamos Conversar</span>',
-        en: '<span style="color: #dde499;">Get in Touch</span>'
+        pt: '<span class="text-yellowish-green">Vamos Conversar</span>',
+        en: '<span class="text-yellowish-green">Get in Touch</span>'
     },
     'contact-description': {
         pt: 'Entre em contato conosco para descobrir como podemos ajudar você com <b>desenvolvimento de tecnologia na agricultura</b>. Nossa equipe está sempre disponível para esclarecer dúvidas e apresentar soluções.',
@@ -70,8 +70,8 @@ const translations = {
 
     // Footer
     'footer-tagline': {
-        pt: '<span style="color: #dde499;">Criando soluções inovadoras para a agricultura.</span>',
-        en: '<span style="color: #dde499;">At the crossover of technology and agriculture.</span>'
+        pt: '<span class="text-yellowish-green">Criando soluções inovadoras para a agricultura.</span>',
+        en: '<span class="text-yellowish-green">At the crossover of technology and agriculture.</span>'
     },
     'contact-address-title': {
         pt: 'Endereço',
@@ -82,8 +82,8 @@ const translations = {
         en: 'Parque Científico e Tecnológico da Unicamp<br>Av. Alan Turing 776<br>Campinas-SP, Brasil<br>13083-898'
     },
     'footer-copyright': {
-        pt: '<span style="color: #b0a384;">© 2025-2026 Manaíba.tech Todos os direitos reservados.</span>',
-        en: '<span style="color: #b0a384;">© 2025-2026 Manaíba.tech All rights reserved.</span>'
+        pt: '<span class="text-dead-leaves">© 2025-2026 Manaíba.tech Todos os direitos reservados.</span>',
+        en: '<span class="text-dead-leaves">© 2025-2026 Manaíba.tech All rights reserved.</span>'
     }
 };
 
