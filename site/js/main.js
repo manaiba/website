@@ -12,8 +12,8 @@ const translations = {
 
     // Hero section
     'hero-tagline': {
-        pt: `Unimos <b>tecnologia</b> e <b>agricultura</b> para colaborar com a abundância da <span class='text-terracotta'><b>vida na Terra</b></span>`,
-        en: `Uniting <b>technology</b> and <b>agriculture</b> to collaborate with the abundance of <span class='text-terracotta'><b>life on Earth</b></span>`
+        pt: `Soluções que aceleram a transição para uma <b>agricultura</b> que regenera a <span class='text-terracotta'><b>biodiversidade</b></span> e o <span class='text-terracotta'><b>clima</b></span>.`,
+        en: `Accelerating the shift to <b>farming</b> that regenerates <span class='text-terracotta'><b>biodiversity</b></span> and <span class='text-terracotta'><b>climate</b></span>.`
     },
     'hero-contact-btn': {
         pt: 'Entre em Contato',
@@ -33,21 +33,41 @@ const translations = {
         pt: 'Sistemas de Software',
         en: 'Software Systems'
     },
+    'about-desc-1': {
+        pt: 'Plataformas customizadas para a agricultura sustentável',
+        en: 'Custom platforms for sustainable agriculture'
+    },
     'about-item-2': {
         pt: 'Sensoriamento Remoto',
         en: 'Remote Sensing'
+    },
+    'about-desc-2': {
+        pt: 'Imagens de satélite e análise geoespacial',
+        en: 'Satellite imagery and geospatial analysis'
     },
     'about-item-3': {
         pt: 'Rastreabilidade',
         en: 'Traceability'
     },
+    'about-desc-3': {
+        pt: 'Transparência ponta-a-ponta na cadeia de suprimentos',
+        en: 'End-to-end supply chain transparency'
+    },
     'about-item-4': {
         pt: 'Inteligência Artificial',
         en: 'Artificial Intelligence'
     },
+    'about-desc-4': {
+        pt: 'Modelos que aprendem com a agronomia',
+        en: 'Models that learn from agronomy'
+    },
     'about-item-5': {
         pt: 'Open Source',
         en: 'Open Source'
+    },
+    'about-desc-5': {
+        pt: 'Ferramentas construídas abertamente com a comunidade',
+        en: 'Tools built openly with the community'
     },
 
     // Contact section
