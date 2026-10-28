@@ -13,6 +13,10 @@ const translations = {
         pt: 'Expertise',
         en: 'Expertise'
     },
+    'nav-careers': {
+        pt: 'Carreiras',
+        en: 'Careers'
+    },
     'nav-contact': {
         pt: 'Contato',
         en: 'Contact'
@@ -120,6 +124,25 @@ const translations = {
         en: 'Custom digital solutions for regenerative agriculture: crop monitoring and reporting using remote sensing, drone flights, and field data.'
     },
 
+    // Careers page
+    'careers-title': {
+        pt: 'Carreiras',
+        en: 'Careers'
+    },
+    'careers-intro': {
+        pt: 'Faça parte de um time que constrói tecnologia para acelerar a transição para uma <b>agricultura</b> que regenera a <span class="text-terracotta"><b>biodiversidade</b></span> e o <span class="text-terracotta"><b>clima</b></span>.',
+        en: 'Join a team building technology that accelerates the shift to <b>farming</b> that regenerates <span class="text-terracotta"><b>biodiversity</b></span> and <span class="text-terracotta"><b>climate</b></span>.'
+    },
+    'careers-openings-title': {
+        pt: 'Vagas abertas',
+        en: 'Open positions'
+    },
+    // Empty in pt: the note only makes sense when the page chrome is in English.
+    'careers-pt-only-note': {
+        pt: '',
+        en: 'This position is published in Portuguese only. Applications must be sent in Portuguese or English.'
+    },
+
     // Contact section
     'contact-title': {
         pt: '<span class="text-yellowish-green">Vamos Conversar</span>',
@@ -206,7 +229,7 @@ function updateLanguage(lang) {
     const elements = document.querySelectorAll('[data-translate]');
     elements.forEach(element => {
         const key = element.getAttribute('data-translate');
-        if (translations[key] && translations[key][lang]) {
+        if (translations[key] && translations[key][lang] !== undefined) {
             element.innerHTML = translations[key][lang];
         }
     });
