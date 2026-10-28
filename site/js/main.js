@@ -137,6 +137,14 @@ const translations = {
         pt: 'Vagas abertas',
         en: 'Open positions'
     },
+    'careers-view': {
+        pt: 'Ver vaga',
+        en: 'View position'
+    },
+    'careers-back': {
+        pt: 'Todas as vagas',
+        en: 'All open positions'
+    },
     // Empty in pt: the note only makes sense when the page chrome is in English.
     'careers-pt-only-note': {
         pt: '',

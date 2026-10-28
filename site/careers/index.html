@@ -94,70 +94,8 @@
         @media (prefers-reduced-motion: reduce) {
             [data-reveal] { opacity: 1; transform: none; transition: none; }
         }
-        /* Job posting body: plain lists with brand bullets */
-        .job-body ul { list-style: none; padding-left: 0; }
-        .job-body li { position: relative; padding-left: 1.5rem; margin-bottom: 0.5rem; }
-        .job-body li::before {
-            content: "";
-            position: absolute;
-            left: 0.25rem;
-            top: 0.65em;
-            width: 0.5rem;
-            height: 0.5rem;
-            border-radius: 9999px;
-            background: #a95028;
-        }
     </style>
 
-    <!-- Structured Data (JSON-LD) -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "JobPosting",
-        "title": "Bolsa FAPESP de Treinamento Técnico (TT-4A) em Aprendizado de Máquina e Sensoriamento Remoto para Sistemas Agroflorestais",
-        "description": "Bolsa TT-4A no projeto PIPE/FAPESP \"Plataforma Digital de Monitoramento e Inteligência Agroflorestal\". Análise de correlações entre índices espectrais de satélite e drone, dados de solo, sensores e manejo; avaliação e integração de modelos de identificação de espécies, floração e pragas; refinamento de modelos de detecção de copas e modelos de fundação geoespaciais para SAFs multiestrato.",
-        "datePosted": "2026-10-28",
-        "validThrough": "2026-11-22T23:59:59-03:00",
-        "employmentType": "OTHER",
-        "inLanguage": "pt-BR",
-        "hiringOrganization": {
-            "@type": "Organization",
-            "name": "Manaíba.tech",
-            "sameAs": "https://manaiba.tech",
-            "logo": "https://manaiba.tech/img/logo-manaiba.png"
-        },
-        "jobLocation": {
-            "@type": "Place",
-            "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "Av. Alan Turing 776",
-                "addressLocality": "Campinas",
-                "addressRegion": "SP",
-                "postalCode": "13083-898",
-                "addressCountry": "BR"
-            }
-        },
-        "jobLocationType": "TELECOMMUTE",
-        "applicantLocationRequirements": {
-            "@type": "Country",
-            "name": "Brazil"
-        },
-        "baseSalary": {
-            "@type": "MonetaryAmount",
-            "currency": "BRL",
-            "value": {
-                "@type": "QuantitativeValue",
-                "value": 7440,
-                "unitText": "MONTH"
-            }
-        },
-        "directApply": false,
-        "applicationContact": {
-            "@type": "ContactPoint",
-            "email": "jobs@manaiba.tech"
-        }
-    }
-    </script>
 </head>
 <body class="bg-cream font-sans">
     <!-- Skip link: hidden until focused via keyboard -->
@@ -292,108 +230,41 @@
         </div>
     </header>
 
-    <!-- Openings -->
+    <!-- Openings list: one card per position, each linking to its own page -->
     <main id="openings" class="bg-cream pb-20 md:pb-28 scroll-mt-20">
         <div class="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
             <div class="max-w-4xl mx-auto">
                 <h2 class="text-2xl md:text-3xl font-bold text-forest-green mb-6"
                     data-translate="careers-openings-title">Open positions</h2>
 
-                <!-- Opening: Bolsa FAPESP TT-4A (published in Portuguese only) -->
-                <article id="bolsa-fapesp-ml" lang="pt-BR" data-reveal
-                         class="bg-white rounded-lg shadow-md overflow-hidden scroll-mt-24">
-                    <div class="bg-forest-green text-cream px-6 py-6 md:px-10 md:py-8">
-                        <div class="flex flex-wrap items-center gap-2 mb-3">
-                            <span class="text-xs font-semibold uppercase tracking-wide bg-terracotta text-cream px-2.5 py-1 rounded">Bolsa FAPESP</span>
-                            <span class="text-xs font-semibold uppercase tracking-wide bg-cream/15 border border-cream/40 px-2.5 py-1 rounded">Campinas (SP) ou remoto</span>
-                            <span class="text-xs font-semibold uppercase tracking-wide bg-cream/15 border border-cream/40 px-2.5 py-1 rounded">12 meses</span>
-                        </div>
-                        <h3 class="text-xl md:text-2xl lg:text-3xl font-bold leading-snug">
-                            Bolsa FAPESP de Treinamento Técnico (TT-4A) em Aprendizado de Máquina e Sensoriamento Remoto para Sistemas Agroflorestais
-                        </h3>
-                        <p class="mt-3 text-sm text-yellowish-green empty:hidden" data-translate="careers-pt-only-note"></p>
-                    </div>
-
-                    <div class="job-body px-6 py-8 md:px-10 md:py-10 text-forest-green leading-relaxed space-y-8">
-                        <section>
-                            <p class="mb-4">
-                                A Manaíba.tech, com sede em Campinas - SP, é uma empresa de atuação global com a missão de criar soluções
-                                que aceleram a transição para uma agricultura que regenera a biodiversidade e o clima.
+                <ul class="space-y-5">
+                    <li>
+                        <a href="/careers/remote-sensing-ml-FAPESP-TT4A/" lang="pt-BR" data-reveal
+                           class="group block bg-white rounded-lg shadow-md hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300
+                                  border-l-4 border-terracotta p-6 md:p-8">
+                            <div class="flex flex-wrap items-center gap-2 mb-3">
+                                <span class="text-xs font-semibold uppercase tracking-wide bg-terracotta text-cream px-2.5 py-1 rounded">Bolsa FAPESP</span>
+                                <span class="text-xs font-semibold uppercase tracking-wide bg-cream border border-dead-leaves text-forest-green px-2.5 py-1 rounded">Campinas (SP) ou remoto</span>
+                                <span class="text-xs font-semibold uppercase tracking-wide bg-cream border border-dead-leaves text-forest-green px-2.5 py-1 rounded">12 meses</span>
+                            </div>
+                            <h3 class="text-xl md:text-2xl font-bold text-forest-green leading-snug mb-3 group-hover:text-terracotta transition-colors">
+                                Bolsa FAPESP de Treinamento Técnico (TT-4A) em Aprendizado de Máquina e Sensoriamento Remoto para Sistemas Agroflorestais
+                            </h3>
+                            <p class="text-forest-green/80 leading-relaxed mb-4">
+                                Análise de dados de satélite, drone, solo e sensores em sistemas agroflorestais, avaliação e
+                                integração de modelos de visão computacional e modelos de fundação geoespaciais no projeto
+                                PIPE/FAPESP "Plataforma Digital de Monitoramento e Inteligência Agroflorestal".
                             </p>
-                            <p>
-                                A empresa oferece uma bolsa TT-4A no projeto PIPE/FAPESP
-                                <em>"Plataforma Digital de Monitoramento e Inteligência Agroflorestal"</em>. O projeto desenvolve
-                                tecnologia de monitoramento para sistemas agroflorestais (SAFs), com experimentos de campo em SAFs
-                                comerciais e parceria com a Rizoma Agroflorestal.
-                            </p>
-                        </section>
-
-                        <section>
-                            <h4 class="text-lg md:text-xl font-bold text-terracotta mb-3">Motivação do candidato</h4>
-                            <p>Interesse em temas relacionados a agricultura regenerativa, sistemas agroflorestais, reflorestamento e mudanças climáticas.</p>
-                        </section>
-
-                        <section>
-                            <h4 class="text-lg md:text-xl font-bold text-terracotta mb-3">Atividades</h4>
-                            <ul>
-                                <li>Analisar correlações entre índices espectrais de satélite e voos de drone, dados de solo, dados de sensores e práticas de manejo.</li>
-                                <li>Avaliar e integrar modelos para identificar espécies, floração e pragas em imagens de campo.</li>
-                                <li>Analisar e refinar modelos de detecção de copas e modelos de fundação geoespaciais (como Prithvi, TerraMind) para SAFs multiestrato.</li>
-                                <li>Apoiar a montagem da base experimental integrada (drone, sensores e solo) e a integração dos modelos à plataforma.</li>
-                            </ul>
-                        </section>
-
-                        <section>
-                            <h4 class="text-lg md:text-xl font-bold text-terracotta mb-3">Requisitos</h4>
-                            <ul>
-                                <li>Graduação ou mestrado preferencialmente em engenharia agrícola, agronomia ou áreas afins; também são aceitas graduações em ciência da computação, engenharias, estatística, física ou áreas afins.</li>
-                                <li>Pelo menos 4 anos de experiência após a graduação, com experiência comprovada em desenvolvimento de software e em aprendizado de máquina (ML).</li>
-                                <li>Experiência em sensoriamento remoto, imagens multiespectrais, dados geoespaciais (GDAL, rasterio, QGIS).</li>
-                                <li>Experiência no uso de ferramentas de IA para desenvolvimento de software (assistentes de código como Claude Code, GitHub Copilot ou Cursor).</li>
-                                <li>Inglês em nível avançado.</li>
-                            </ul>
-                        </section>
-
-                        <section>
-                            <h4 class="text-lg md:text-xl font-bold text-terracotta mb-3">Desejável</h4>
-                            <ul>
-                                <li>Contribuições para projetos de código aberto.</li>
-                            </ul>
-                        </section>
-
-                        <section>
-                            <h4 class="text-lg md:text-xl font-bold text-terracotta mb-3">Condições</h4>
-                            <ul>
-                                <li>Bolsa TT-4A FAPESP: R$ 7.440,00/mês (valor líquido), 40 h semanais, por 12 meses. Possibilidade de contratação ao final do projeto.</li>
-                                <li>Local: Campinas (SP) ou remoto, com possibilidade de idas a campo.</li>
-                            </ul>
-                        </section>
-
-                        <section class="bg-cream rounded-lg p-6 md:p-8 border border-yellowish-green">
-                            <h4 class="text-lg md:text-xl font-bold text-forest-green mb-3">Inscrições</h4>
-                            <p class="mb-5">
-                                Enviar CV e carta de motivação curta para
-                                <a href="mailto:jobs@manaiba.tech?subject=Bolsa%20FAPESP%20-%20ML" class="font-semibold text-terracotta underline underline-offset-2 hover:text-brown">jobs@manaiba.tech</a>
-                                até <strong>22 de novembro</strong>, com o assunto <strong>"Bolsa FAPESP - ML"</strong>.
-                            </p>
-                            <a href="mailto:jobs@manaiba.tech?subject=Bolsa%20FAPESP%20-%20ML"
-                               class="text-white px-8 py-3 rounded-lg text-base md:text-lg font-bold inline-block
-                                      transform hover:scale-105 hover:shadow-xl transition-all duration-300 border-2 border-transparent hover:border-white
-                                      bg-gradient-to-br from-forest-green to-medium-green"
-                               style="box-shadow: 0 4px 15px rgba(54, 76, 40, 0.3);">
-                                Candidatar-se
-                            </a>
-                        </section>
-
-                        <section class="text-sm text-forest-green/80 border-t border-gray-200 pt-6">
-                            <h4 class="font-bold text-forest-green mb-2">Sobre a bolsa TT-4A (FAPESP)</h4>
-                            <p>
-                                A TT-4A exige candidato graduado com no mínimo 4 anos de experiência em pesquisa ou profissional
-                                após a graduação, em área relacionada ao Plano de Atividades.
-                            </p>
-                        </section>
-                    </div>
-                </article>
+                            <div class="flex flex-wrap items-center justify-between gap-3">
+                                <span class="text-sm text-forest-green/70">Inscrições até <strong class="text-forest-green">22 de novembro</strong></span>
+                                <span class="inline-flex items-center gap-1 font-semibold text-terracotta">
+                                    <span data-translate="careers-view">View position</span>
+                                    <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                                </span>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
     </main>
